@@ -1,0 +1,5 @@
+key: ckeditor.native_spellchecker
+value: '1'
+xtype: combo-boolean
+namespace: ckeditor
+area: general

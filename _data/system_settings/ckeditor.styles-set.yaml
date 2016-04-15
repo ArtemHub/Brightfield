@@ -1,0 +1,5 @@
+key: ckeditor.styles_set
+value: default
+xtype: textarea
+namespace: ckeditor
+area: general

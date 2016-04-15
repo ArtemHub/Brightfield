@@ -1,0 +1,5 @@
+key: ckeditor.object_resizing
+value: '0'
+xtype: combo-boolean
+namespace: ckeditor
+area: general

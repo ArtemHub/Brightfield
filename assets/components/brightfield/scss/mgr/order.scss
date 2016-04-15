@@ -1,0 +1,208 @@
+@import "fonts";
+
+$border_colo_lightngray: #e3e3e3;
+$border_colo_gray: #ccc;
+
+body {
+  font-family: 'Open Sans';
+  font-size: 8pt;
+  line-height: 8pt;
+  padding: 0;
+  margin: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.order--wrapper {
+  position: relative;
+}
+
+.order_info--wrapper {
+  .code {
+    position: absolute;
+    top: 8pt;
+    right: 0;
+    text-align: right;
+    font-weight: bold;
+    font-size: 13pt;
+    height: 16pt;
+
+    span {
+      font-weight: normal;
+      font-size: 8pt;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 3px;
+    position: relative;
+  }
+
+  .field {
+    margin-bottom: 3pt;
+  }
+  .field-label {
+    width: 60pt;
+    display: inline-block;
+  }
+
+  .order-cost {
+    text-align: right;
+    line-height: 12pt;
+    padding-top: 8pt;
+    margin-top: 26pt;
+    border-top: 1px solid #999;
+  }
+}
+
+.order-list {
+  position: relative;
+  overflow: hidden;
+}
+.order-list--wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-top: 5pt;
+
+  h1 {
+    font-size: 12pt;
+    text-align: center;
+  }
+  h2 {
+    padding-top: 30pt;
+    font-size: 18pt;
+    margin-bottom: 6pt;
+    page-break-before: always;
+  }
+
+  .title_kit:first-child {
+    padding-top: 0;
+  }
+}
+
+.order-list--thead {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  th {
+    border: 1px solid $border_colo_gray;
+    font-size: 7pt;
+    font-weight: normal;
+    text-align: left;
+
+    div {
+      padding: 2pt 3pt;
+    }
+  }
+
+  .code {
+    width: 60px;
+    border-right: none;
+  }
+  .title {
+    width: 150px;
+    border-right: none;
+  }
+  .desc {
+    border-right: none;
+  }
+  .price {
+    width: 80px;
+    border-right: none;
+  }
+  .count {
+    width: 30px;
+    border-right: none;
+  }
+  .cost {
+    width: 80px;
+  }
+}
+
+.disable-page-break {
+  page-break-inside: avoid;
+}
+
+.order-list--tbody {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20pt;
+  page-break-inside: avoid;
+
+  td {
+    border: 1px solid $border_colo_gray;
+    border-bottom: none;
+    font-size: 7pt;
+    font-weight: normal;
+    text-align: left;
+
+    div {
+      padding: 2pt 3pt;
+    }
+  }
+  tr:last-child {
+    td {
+      border: 1px solid $border_colo_gray;
+    }
+  }
+
+  .subtitle {
+    background-color: #f0f0f0;
+
+    div {
+      padding: 3pt 3pt;
+    }
+  }
+
+  .code {
+    width: 60px;
+    border-right: none;
+  }
+  .title {
+    width: 150px;
+    border-right: none;
+  }
+  .desc {
+    border-right: none;
+  }
+  .price {
+    width: 80px;
+    border-right: none;
+  }
+  .count {
+    width: 30px;
+    border-right: none;
+  }
+  .cost {
+    width: 80px;
+  }
+}
+
+.order-list--images {
+  overflow: hidden;
+  border: 1px solid $border_colo_gray;
+
+  .images-row {
+    td {
+      width: 25%;
+      padding: 3pt 3pt 0 3px;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+
+    span {
+      display: block;
+      font-size: 8pt;
+      padding-bottom: 4pt;
+    }
+  }
+}

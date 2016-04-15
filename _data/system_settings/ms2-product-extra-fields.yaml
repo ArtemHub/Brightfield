@@ -1,0 +1,4 @@
+key: ms2_product_extra_fields
+xtype: textarea
+namespace: minishop2
+area: ms2_product

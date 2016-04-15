@@ -1,0 +1,4 @@
+key: ckeditor.autocorrect_double_quotes
+value: «»
+namespace: ckeditor
+area: general

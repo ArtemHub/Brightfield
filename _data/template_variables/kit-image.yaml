@@ -1,0 +1,11 @@
+id: 2
+source: 3
+type: imageplus
+name: kit_image
+elements: ''
+display: default
+default_text: ''
+properties: 'a:0:{}'
+input_properties: 'a:5:{s:11:"targetWidth";s:0:"";s:12:"targetHeight";s:0:"";s:11:"targetRatio";s:0:"";s:14:"thumbnailWidth";s:0:"";s:11:"allowAltTag";s:4:"true";}'
+output_properties: 'a:0:{}'
+content: ''

@@ -1,0 +1,5 @@
+key: ms2_product_main_fields
+value: 'pagetitle,longtitle,introtext,content,template,parent,alias,menutitle,searchable,cacheable,richtext'
+xtype: textarea
+namespace: minishop2
+area: ms2_product

@@ -1,0 +1,38 @@
+.br-pricefield {
+  div {
+    display: inline-block;
+
+    input {
+      width: 100%;
+    }
+  }
+  .price-ct {
+    width: 25%;
+    margin-right: 16px;
+  }
+  .coefficient-ct {
+    width: 25%;
+    margin-right: 16px;
+  }
+  .currency-ct {
+    width: 70px;
+    margin-right: 6px;
+
+    input {
+      width: 30px !important;
+    }
+  }
+  .rate-ct {
+    width: 50px;
+    font-size: 16px;
+    color: #3697cd;
+    position: relative;
+    top: 3px;
+  }
+  .cost-ct {
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    padding-top: 4px;
+  }
+}

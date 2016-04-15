@@ -1,0 +1,45 @@
+.diameter-field-wrap .wrapper {
+  position: relative;
+}
+.label-ct {
+  display: block;
+  width: 100%;
+  padding: 0 0 3px;
+}
+
+.diameter-field-label {
+  width: auto;
+  color: #555;
+  font-size: 13px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+
+.input-ct {
+  display: block;
+  padding-right: 110px;
+  box-sizing: border-box;
+}
+
+.checkbox-ct {
+  display: inline-block;
+  width: 26px;
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.checkbox-ct label:before {
+  font-size: 32px !important;
+}
+
+.combo-ct {
+  display: inline-block;
+  width: 70px;
+  position: absolute;
+  top: 0;
+  right: 26px;
+}

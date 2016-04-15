@@ -1,0 +1,4 @@
+key: ckeditor.toolbar
+xtype: textarea
+namespace: ckeditor
+area: general

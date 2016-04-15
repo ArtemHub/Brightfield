@@ -1,0 +1,228 @@
+.br-grid-row-disabled {
+  font-style: italic;
+  opacity: .6;
+  color: #555; }
+
+.br-kittab-grid-action-remove {
+  font-size: 18px;
+  cursor: pointer; }
+  .br-kittab-grid-action-remove:hover {
+    color: #32ab9a; }
+
+.br-kittab-gridview-title {
+  display: inline-block; }
+  .br-kittab-gridview-title input {
+    min-height: 0;
+    width: 300px;
+    height: 20px !important;
+    padding: 0;
+    font-weight: normal;
+    box-sizing: border-box; }
+
+.br-kittab-gridview-add {
+  position: absolute;
+  right: 47px;
+  top: 7px;
+  font-size: 22px;
+  cursor: pointer; }
+  .br-kittab-gridview-add:hover {
+    color: #32ab9a; }
+
+.br-kittab-gridview-edit {
+  font-size: 14px;
+  cursor: pointer;
+  color: #999; }
+  .br-kittab-gridview-edit:hover {
+    color: #32ab9a; }
+
+.br-kittab-gridview-remove {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  font-size: 14px;
+  cursor: pointer; }
+  .br-kittab-gridview-remove:hover {
+    color: #881203; }
+
+.br-kittab-gridview-up {
+  position: absolute;
+  right: 30px;
+  top: 4px;
+  font-size: 18px;
+  z-index: 10;
+  color: #c3c3c3;
+  cursor: pointer; }
+  .br-kittab-gridview-up:hover {
+    color: #32ab9a; }
+
+.br-kittab-gridview-down {
+  position: absolute;
+  right: 30px;
+  top: 14px;
+  font-size: 18px;
+  color: #c3c3c3;
+  cursor: pointer; }
+  .br-kittab-gridview-down:hover {
+    color: #32ab9a; }
+
+.br-tab-label span {
+  display: block;
+  font-size: 11px;
+  margin-top: 4px; }
+
+.br-order-panel {
+  padding: 20px 10px 20px 20px;
+  box-sizing: border-box; }
+  .br-order-panel .br-dutton-add {
+    padding: 8px 15px; }
+    .br-order-panel .br-dutton-add button {
+      vertical-align: inherit; }
+
+.br-panel-default {
+  background-color: #fff; }
+
+.br-order-cpanel {
+  margin-bottom: 5px;
+  padding: 20px; }
+
+.br-order-form {
+  margin-bottom: 5px;
+  padding: 20px; }
+
+.br-order-header .wrapper {
+  position: relative; }
+.br-order-header .title-ct h1 {
+  font-weight: normal;
+  font-size: 26px;
+  margin-bottom: 12px; }
+.br-order-header .currency-rate-ct {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  padding: 10px;
+  color: #333; }
+.br-order-header .currency {
+  display: inline;
+  font-size: 16px;
+  color: #1a7fb8; }
+  .br-order-header .currency:first-child {
+    margin-left: 4px; }
+  .br-order-header .currency:last-child {
+    margin-left: 10px; }
+  .br-order-header .currency span {
+    color: #000; }
+.br-order-header .buttons-ct {
+  position: fixed;
+  top: 55px;
+  right: 24px;
+  background: rgba(230, 230, 230, 0.7);
+  padding: 10px 5px 7px 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,Tahoma,sans-serif;
+  border-radius: 0 0 5px 5px;
+  z-index: 11; }
+  .br-order-header .buttons-ct span {
+    margin-left: 7px; }
+
+.order-tabpanel {
+  margin: 0 0 5px 0 !important; }
+  .order-tabpanel .x-tab-panel-bwrap {
+    box-shadow: none !important; }
+  .order-tabpanel .x-tab-panel-body {
+    padding: 20px; }
+
+.order-alert-isset {
+  text-align: center; }
+  .order-alert-isset b {
+    font-size: 16px; }
+
+.br-button-add-user {
+  margin-top: 22px;
+  padding: 4px 8px 8px 8px; }
+  .br-button-add-user button {
+    font-size: 18px; }
+
+.br-order-manager {
+  padding: 20px 10px 20px 20px;
+  box-sizing: border-box; }
+
+.br-order-list {
+  padding: 20px; }
+
+.br-row-actions li {
+  display: inline-block; }
+.br-row-actions .btn {
+  padding: 2px;
+  margin-right: 2px;
+  min-width: 26px;
+  cursor: pointer; }
+.br-row-actions .action-green {
+  color: #32ab9a; }
+
+.br-pricefield div {
+  display: inline-block; }
+  .br-pricefield div input {
+    width: 100%; }
+.br-pricefield .price-ct {
+  width: 25%;
+  margin-right: 16px; }
+.br-pricefield .coefficient-ct {
+  width: 25%;
+  margin-right: 16px; }
+.br-pricefield .currency-ct {
+  width: 70px;
+  margin-right: 6px; }
+  .br-pricefield .currency-ct input {
+    width: 30px !important; }
+.br-pricefield .rate-ct {
+  width: 50px;
+  font-size: 16px;
+  color: #3697cd;
+  position: relative;
+  top: 3px; }
+.br-pricefield .cost-ct {
+  display: block;
+  width: 100%;
+  font-size: 24px;
+  padding-top: 4px; }
+
+.diameter-field-wrap .wrapper {
+  position: relative; }
+
+.label-ct {
+  display: block;
+  width: 100%;
+  padding: 0 0 3px; }
+
+.diameter-field-label {
+  width: auto;
+  color: #555;
+  font-size: 13px;
+  font-weight: 700;
+  z-index: 2; }
+
+.input-ct {
+  display: block;
+  padding-right: 110px;
+  box-sizing: border-box; }
+
+.checkbox-ct {
+  display: inline-block;
+  width: 26px;
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+.checkbox-ct label:before {
+  font-size: 32px !important; }
+
+.combo-ct {
+  display: inline-block;
+  width: 70px;
+  position: absolute;
+  top: 0;
+  right: 26px; }
+
+/*# sourceMappingURL=brightfield.css.map */

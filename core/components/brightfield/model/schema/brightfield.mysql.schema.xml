@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="brightfield" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="brightfield" version="1.1">
+
+    <object class="brKit" table="br_kits" extends="xPDOSimpleObject">
+        <field key="kitid" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+        <field key="title" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="menuindex" dbtype="int" precision="10" phptype="integer" null="false" default="0" />
+
+        <index alias="kitid" name="kitid" primary="false" unique="false" type="BTREE">
+            <column key="kitid" length="" collation="A" null="false"/>
+        </index>
+
+        <composite alias="Pack" class="brPack" local="id" foreign="packid" cardinality="many" owner="local" />
+    </object>
+
+    <object class="brPack" table="br_packages" extends="xPDOSimpleObject">
+        <field key="packid" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+        <field key="prodid" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+        <field key="menuindex" dbtype="int" precision="10" phptype="integer" null="false" default="0" />
+
+        <index alias="packid" name="packid" primary="false" unique="false" type="BTREE">
+            <column key="packid" length="" collation="A" null="false"/>
+        </index>
+
+        <aggregate alias="Kit" class="brKit" local="packid" foreign="id" cardinality="one" owner="foreign" />
+    </object>
+
+
+    <object class="brOrder" table="br_orders" extends="xPDOSimpleObject">
+        <field key="manager_id" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+        <field key="client_id" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+        <field key="client_name" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="createdon" dbtype="datetime" phptype="datetime" null="false" default="0000-00-00 00:00:00" />
+        <field key="updatedon" dbtype="datetime" phptype="datetime" null="false" default="0000-00-00 00:00:00" />
+        <field key="num" dbtype="varchar" precision="20" phptype="string" null="true" default="" />
+        <field key="cost" dbtype="decimal" precision="12,2" phptype="float" null="false" default="0" />
+        <field key="price" dbtype="decimal" precision="12,2" phptype="float" null="false" default="0" />
+        <field key="discount" dbtype="decimal" precision="12,2" phptype="float" null="false" default="0" />
+        <field key="status" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="true" default="0" />
+        <field key="city" dbtype="varchar" precision="255" phptype="string" null="true" default="" />
+        <field key="address" dbtype="varchar" precision="255" phptype="string" null="true" default="" />
+        <field key="phone" dbtype="varchar" precision="12" phptype="string" null="true" default="" />
+        <field key="company" dbtype="varchar" precision="255" phptype="string" null="true" default="" />
+        <field key="context" dbtype="varchar" precision="100" phptype="string" null="true" default="web" />
+        <field key="comment" dbtype="text" phptype="string" null="true" />
+        <field key="properties" dbtype="text" phptype="json" null="true" />
+
+        <index alias="manager_id" name="manager_id" primary="false" unique="false" type="BTREE" >
+            <column key="manager_id" length="" collation="A" null="false" />
+        </index>
+        <index alias="clietnt_id" name="clietnt_id" primary="false" unique="false" type="BTREE" >
+            <column key="clietnt_id" length="" collation="A" null="false" />
+        </index>
+        <index alias="status" name="status" primary="false" unique="false" type="BTREE" >
+            <column key="status" length="" collation="A" null="false" />
+        </index>
+
+        <aggregate alias="Manager" class="modUser" local="manager_id" foreign="id" cardinality="one" owner="foreign" />
+        <aggregate alias="Client" class="modUser" local="client_id" foreign="id" cardinality="one" owner="foreign" />
+        <aggregate alias="ManagerProfile" class="modUserProfile" local="manager_id" foreign="internalKey" cardinality="one" owner="foreign" />
+        <aggregate alias="ClientProfile" class="modUserProfile" local="clietnt_id" foreign="internalKey" cardinality="one" owner="foreign" />
+        <composite alias="Products" class="brOrderProduct" local="id" foreign="order_id" cardinality="many" owner="local" />
+        <composite alias="OrderKit" class="brOrderKit" local="id" foreign="order_id" cardinality="many" owner="local" />
+    </object>
+
+    <object class="brOrderKit" table="br_order_kits" extends="xPDOSimpleObject">
+        <field key="order_id" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+        <field key="kit_id" dbtype="int" precision="10" phptype="integer" null="false"  default="" />
+
+        <index alias="kit_id" name="kitid" primary="false" unique="false" type="BTREE">
+            <column key="kit_id" length="" collation="A" null="false"/>
+        </index>
+
+        <aggregate alias="User" class="modUser" local="user_id" foreign="id" cardinality="one" owner="foreign" />
+        <aggregate alias="Kit" class="modResource" local="kit_id" foreign="id" cardinality="one" owner="foreign" />
+        <aggregate alias="Order" class="brOrder" local="order_id" foreign="id" cardinality="one" owner="foreign" />
+        <composite alias="OrderProduct" class="brOrderProduct" local="kit_id" foreign="kit_id" cardinality="many" owner="local" />
+    </object>
+
+    <object class="brOrderProduct" table="br_order_products" extends="xPDOSimpleObject">
+        <field key="product_id" dbtype="int" precision="10" phptype="integer" attributes="unsigned" null="false" />
+        <field key="kit_id" dbtype="int" precision="10" phptype="integer" attributes="unsigned" null="false" />
+        <field key="pack_id" dbtype="int" precision="10" phptype="integer" attributes="unsigned" null="false" />
+        <field key="order_id" dbtype="int" precision="10" phptype="integer" attributes="unsigned" null="false" />
+        <field key="count" dbtype="int" precision="10" phptype="integer" attributes="unsigned" null="true" default="1" />
+        <field key="price" dbtype="decimal" precision="12,2" phptype="float" null="true" default="0" />
+        <field key="cost" dbtype="decimal" precision="12,2" phptype="float" null="true" default="0" />
+        <field key="discount" dbtype="decimal" precision="12,2" phptype="float" null="true" default="0" />
+        <field key="archive" dbtype="text" phptype="json" null="true" />
+
+        <index alias="product_id" name="product_id" primary="false" unique="false" type="BTREE" >
+            <column key="product_id" length="" collation="A" null="false" />
+        </index>
+        <index alias="order_id" name="order_id" primary="false" unique="false" type="BTREE" >
+            <column key="order_id" length="" collation="A" null="false" />
+        </index>
+        <index alias="kit_id" name="kit_id" primary="false" unique="false" type="BTREE" >
+            <column key="kit_id" length="" collation="A" null="false" />
+        </index>
+        <index alias="pack_id" name="pack_id" primary="false" unique="false" type="BTREE" >
+            <column key="pack_id" length="" collation="A" null="false" />
+        </index>
+
+        <aggregate alias="Product" class="msProduct" local="product_id" foreign="id" owner="foreign" cardinality="one" />
+        <aggregate alias="OrderKit" class="brOrderKit" local="kit_id" foreign="kit_id" owner="foreign" cardinality="one" />
+        <aggregate alias="Pack" class="brKit" local="pack_id" foreign="id" owner="foreign" cardinality="one" />
+        <aggregate alias="Order" class="brOrder" local="order_id" foreign="id" owner="foreign" cardinality="one" />
+    </object>
+
+</model>

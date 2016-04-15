@@ -1,0 +1,4 @@
+key: ckeditor.autocorrect_single_quotes
+value: „“
+namespace: ckeditor
+area: general

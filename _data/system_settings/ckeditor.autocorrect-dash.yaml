@@ -1,0 +1,4 @@
+key: ckeditor.autocorrect_dash
+value: —
+namespace: ckeditor
+area: general

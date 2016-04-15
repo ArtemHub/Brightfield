@@ -1,0 +1,4 @@
+key: ckeditor.remove_plugins
+value: 'forms,smiley,autogrow,liststyle,justify,pagebreak,colorbutton,indentblock,font,newpage,print,save,language,bidi,selectall,preview'
+namespace: ckeditor
+area: general

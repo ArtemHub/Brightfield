@@ -1,0 +1,26 @@
+.br-order-manager {
+  padding: 20px 10px 20px 20px;
+  box-sizing: border-box;
+}
+
+.br-order-list {
+  padding: 20px;
+}
+
+.br-row-actions {
+  li {
+    display: inline-block;
+  }
+
+  .btn {
+    padding: 2px;
+    margin-right: 2px;
+    min-width: 26px;
+
+    cursor: pointer;
+  }
+
+  .action-green {
+    color: #32ab9a;
+  }
+}

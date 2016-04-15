@@ -1,0 +1,4 @@
+key: phpthumb_allow_src_above_docroot
+value: '1'
+xtype: combo-boolean
+area: phpthumb
