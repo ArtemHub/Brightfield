@@ -18,7 +18,7 @@ Brightfield.Order.Form = Ext.extend(MODx.FormPanel, {
                         labelAlign: 'top',
                     },
                     items: this.getDefaultTabFields(config.record)
-                },{
+                }, {
                     title: 'Контактная информация',
                     layout: 'column',
                     defaults: {
@@ -40,7 +40,54 @@ Brightfield.Order.Form = Ext.extend(MODx.FormPanel, {
 
     getDefaultTabFields: function(record) {
         return [{
-            columnWidth: .3,
+            columnWidth: .45,
+            items: [{
+                cls: 'order-panel-info',
+                layout:'table',
+                layoutConfig: {
+                    columns: 1,
+                    tableAttrs: {
+                        style: {
+                            width: '100%',
+                            height: '100%'
+                        }
+                    },
+                },
+                items: [{
+                    layout: 'form',
+                    labelAlign: 'top',
+                    defaults: {
+                        xtype: 'displayfield',
+                        itemCls: 'br-panel-info-field small',
+                    },
+                    items: [{
+                        fieldLabel: 'товаров',
+                        name: 'total',
+                        value: 10,
+                    }, {
+                        fieldLabel: 'общая стоимость',
+                        name: 'price',
+                        value: parseFloat(record.price).toFixed(2).replace(/\.00/,'') || '0.00',
+                    }, {
+                        fieldLabel: 'скидка',
+                        name: 'discount_price',
+                        value: 12313.32,
+                    }]
+                }, {
+                    layout: 'form',
+                    labelAlign: 'top',
+                    colspan: 2,
+                    items: [{
+                        xtype: 'displayfield',
+                        itemCls: 'br-panel-info-field',
+                        fieldLabel: 'конечная цена',
+                        name: 'cost',
+                        value: parseFloat(record.cost).toFixed(2).replace(/\.00/,'') || '0.00'
+                    }]
+                }]
+            }]
+        }, {
+            columnWidth: .15,
             defaults: {
                 anchor: '100%'
             },
@@ -48,49 +95,11 @@ Brightfield.Order.Form = Ext.extend(MODx.FormPanel, {
                 xtype: 'hidden',
                 name: 'id',
                 value: record.id
-            },{
-                xtype: 'displayfield',
-                fieldLabel: 'Общая стоимость (грн)',
-                name: 'price',
-                value: parseFloat(record.price).toFixed(2).replace(/\.00/,'') || '0.00',
-            }, {
-                xtype: 'displayfield',
-                fieldLabel: 'Конечная цена (грн)',
-                name: 'cost',
-                value: parseFloat(record.cost).toFixed(2).replace(/\.00/,'') || '0.00'
-            }]
-        }, {
-            columnWidth: .3,
-            defaults: {
-                anchor: '100%',
-            },
-            items: [{
-                xtype: 'displayfield',
-                fieldLabel: 'Дата создания',
-                name: 'createdon',
-                value: record.createdon || ''
-            }, {
-                xtype: 'displayfield',
-                fieldLabel: 'Дата редактирования',
-                name: 'updatedon',
-                value: record.updatedon || ''
-            }]
-        }, {
-            columnWidth: .4,
-            defaults: {
-                anchor: '100%'
-            },
-            items: [{
-                xtype: 'br-order-status',
-                fieldLabel: 'Статус заказа',
-                name: 'status',
-                value: record.status || 0,
-                hiddenName: 'status',
             }, {
                 xtype: 'numberfield',
                 fieldLabel: 'Общая скидка (%)',
                 decimalPrecision: '2',
-                anchor: '26%',
+                anchor: '100%',
                 maxValue: 100,
                 minValue: 0,
                 listeners: {
@@ -102,6 +111,35 @@ Brightfield.Order.Form = Ext.extend(MODx.FormPanel, {
                 },
                 name: 'discount',
                 value: record.discount || ''
+            }, {
+                xtype: 'br-order-status',
+                fieldLabel: 'Статус заказа',
+                name: 'status',
+                value: record.status || 0,
+                hiddenName: 'status',
+            }]
+        }, {
+            columnWidth: .2,
+            defaults: {
+                anchor: '100%'
+            },
+            items: [{
+                layout: 'form',
+                labelAlign: 'top',
+                rowspan: 2,
+                defaults: {
+                    itemCls: 'br-panel-date-field',
+                    xtype: 'displayfield',
+                },
+                items: [{
+                    fieldLabel: 'дата создания',
+                    name: 'createdon',
+                    value: record.createdon || ''
+                }, {
+                    fieldLabel: 'дата редактирования',
+                    name: 'updatedon',
+                    value: record.updatedon || ''
+                }]
             }]
         }]
     },

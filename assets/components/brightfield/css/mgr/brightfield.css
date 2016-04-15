@@ -135,11 +135,47 @@
   .order-alert-isset b {
     font-size: 16px; }
 
-.br-button-add-user {
-  margin-top: 22px;
-  padding: 4px 8px 8px 8px; }
-  .br-button-add-user button {
-    font-size: 18px; }
+.order-panel-info {
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  background: #f9f9f9; }
+
+.br-panel-info-field {
+  padding-bottom: 12px !important;
+  padding-top: 10px !important;
+  border-top: 1px dashed #ccc; }
+  .br-panel-info-field .x-form-element {
+    font-size: 30px;
+    line-height: 30px; }
+    .br-panel-info-field .x-form-element div {
+      padding: 0 !important; }
+  .br-panel-info-field label {
+    font-size: 12px !important;
+    padding: 0 !important;
+    font-weight: normal !important; }
+  .br-panel-info-field.small {
+    width: 33%;
+    float: left;
+    border: none;
+    padding-top: 0 !important; }
+    .br-panel-info-field.small .x-form-element {
+      font-size: 20px;
+      line-height: 20px; }
+    .br-panel-info-field.small label {
+      font-size: 10px !important; }
+
+.br-panel-date-field {
+  padding-bottom: 10px !important; }
+  .br-panel-date-field .x-form-element {
+    font-size: 14px;
+    line-height: 14px; }
+    .br-panel-date-field .x-form-element div {
+      padding: 4px 0 0 0 !important; }
+  .br-panel-date-field label {
+    font-size: 10px !important;
+    padding: 0 !important;
+    font-weight: normal !important; }
 
 .br-order-manager {
   padding: 20px 10px 20px 20px;

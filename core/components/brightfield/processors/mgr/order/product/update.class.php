@@ -95,7 +95,10 @@ class BrightfieldOrderProductUpdateProcessor extends modObjectProcessor {
             return $this->failure($this->modx->lexicon('order_err_save'));
         }
 
-        return $order->toArray();
+        $result = $order->toArray();
+        $result['total'] = $this->modx->getCount('brOrderProduct', array('order_id' => $this->order_id));
+        $result['discount_price'] = $result['cost'] - $result['price'];
+        return $result;
     }
 
     public function success($msg = '',$object = null) {

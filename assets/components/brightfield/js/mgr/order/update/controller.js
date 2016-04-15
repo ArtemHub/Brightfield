@@ -145,7 +145,8 @@ Brightfield.controller = Ext.extend(Ext.util.Observable, {
 
     updateOrderForm: function(record) {
         var f = this.getCt('form');
-        console.log(record)
+
+        console.log(f.getForm().getValues())
         if(record.price && record.cost) {
             record.price = parseFloat(record.price).toFixed(2).replace(/\.00/,'');
             record.cost = parseFloat(record.cost).toFixed(2).replace(/\.00/,'');

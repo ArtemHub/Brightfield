@@ -102,11 +102,63 @@
   }
 }
 
-.br-button-add-user {
-  margin-top: 22px;
-  padding: 4px 8px 8px 8px;
+.order-panel-info {
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  background: #f9f9f9;
+}
+.br-panel-info-field {
+  padding-bottom: 12px !important;
+  padding-top: 10px !important;
+  border-top: 1px dashed #ccc;
 
-  button {
-    font-size: 18px;
+  .x-form-element {
+    font-size: 30px;
+    line-height: 30px;
+
+    div {
+      padding: 0 !important;
+    }
+  }
+
+  label {
+    font-size: 12px !important;
+    padding: 0 !important;
+    font-weight: normal !important;
+  }
+
+  &.small {
+    width: 33%;
+    float: left;
+    border: none;
+    padding-top: 0 !important;
+
+    .x-form-element {
+      font-size: 20px;
+      line-height: 20px;
+    }
+    label {
+      font-size: 10px !important;
+    }
+  }
+}
+
+.br-panel-date-field {
+  padding-bottom: 10px !important;
+
+  .x-form-element {
+    font-size: 14px;
+    line-height: 14px;
+
+    div {
+      padding: 4px 0 0 0 !important;
+    }
+  }
+
+  label {
+    font-size: 10px !important;
+    padding: 0 !important;
+    font-weight: normal !important;
   }
 }

@@ -35,7 +35,9 @@ class BrightfieldMgrOrderUpdateManagerController extends BrightfieldMainControll
         $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/widgets/grid.kit.js');
         $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/widgets/grid.product.js');
         $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/widgets/header.js');
-        $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/widgets/window.user.js');
+
+        $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/update/widgets/window.user.js');
+        $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/update/widgets/panel.info.js');
 
         $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/update/app.js');
         $this->addJavascript($this->br->config['jsUrl'] . 'mgr/order/update/controller.js');
