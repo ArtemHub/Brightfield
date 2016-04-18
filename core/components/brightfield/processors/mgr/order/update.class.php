@@ -4,6 +4,7 @@ class BrightfieldOrderUpdateProcessor extends modObjectUpdateProcessor{
     public $objectType = 'brOrder';
     public $classKey = 'brOrder';
     public $languageTopics = array('brightfield');
+    public $id = null;
     public $permission = 'br_order_update';
 
     public function beforeSave()
@@ -12,11 +13,13 @@ class BrightfieldOrderUpdateProcessor extends modObjectUpdateProcessor{
             return $this->modx->lexicon('access_denied');
         }
 
+        $this->id = $this->object->get('id');
+
         $this->object->set('updatedon', time());
 
         $c = $this->modx->newQuery('brOrderProduct');
         $c->where(array(
-            'order_id' => $this->object->get('id')
+            'order_id' => $this->id
         ));
         $c->select('SUM(cost) as price');
 

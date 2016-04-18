@@ -22,6 +22,7 @@ $xpdo_meta_map['brOrder']= array (
     'company' => '',
     'context' => 'web',
     'comment' => NULL,
+    'total' => 0,
     'properties' => NULL,
   ),
   'fieldMeta' => 
@@ -150,6 +151,15 @@ $xpdo_meta_map['brOrder']= array (
       'dbtype' => 'text',
       'phptype' => 'string',
       'null' => true,
+    ),
+    'total' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '3',
+      'attributes' => 'unsigned',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
     ),
     'properties' => 
     array (

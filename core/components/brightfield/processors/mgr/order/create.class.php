@@ -16,7 +16,8 @@ class BrightfieldOrderCreateProcessor extends modProcessor {
             'createdon' => time(),
             'updatedon' => mktime(0,0,0,0,0,0),
             'num' => date('ym-dHs'),
-            'status' => 1
+            'status' => 1,
+            'total' => 0
         ));
 
         if(!$this->object->save()) {

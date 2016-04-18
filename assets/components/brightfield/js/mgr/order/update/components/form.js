@@ -63,7 +63,7 @@ Brightfield.Order.Form = Ext.extend(MODx.FormPanel, {
                     items: [{
                         fieldLabel: 'товаров',
                         name: 'total',
-                        value: 10,
+                        value: record.total || 0,
                     }, {
                         fieldLabel: 'общая стоимость',
                         name: 'price',

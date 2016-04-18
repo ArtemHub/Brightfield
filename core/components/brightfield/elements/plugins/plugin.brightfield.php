@@ -59,6 +59,7 @@ if($modx->event->name == 'OnDocFormPrerender') {
     }
     if($resource->class_key == 'msCategory' || $resource->class_key == 'msProduct') {
         $modx->regClientStartupScript($br->config['jsUrl'].'mgr/minishop2/widgets.js');
+        $modx->regClientStartupScript($br->config['jsUrl'].'mgr/minishop2/buttons.product.category.js');
         $modx->regClientCSS($br->config['cssUrl'].'mgr/brightfield.css');
     }
     if($resource->class_key == 'msProduct') {

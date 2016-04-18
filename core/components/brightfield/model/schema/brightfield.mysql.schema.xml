@@ -43,6 +43,7 @@
         <field key="company" dbtype="varchar" precision="255" phptype="string" null="true" default="" />
         <field key="context" dbtype="varchar" precision="100" phptype="string" null="true" default="web" />
         <field key="comment" dbtype="text" phptype="string" null="true" />
+        <field key="total" dbtype="int" precision="3" attributes="unsigned" phptype="integer" null="false" default="0" />
         <field key="properties" dbtype="text" phptype="json" null="true" />
 
         <index alias="manager_id" name="manager_id" primary="false" unique="false" type="BTREE" >

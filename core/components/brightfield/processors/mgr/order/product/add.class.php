@@ -126,12 +126,20 @@ class BrightfieldOrderProductAddProcessor extends modObjectProcessor {
         $order->set('cost', $cost);
         $order->set('updatedon', time());
 
+        $c = $this->modx->newQuery('brOrderProduct');
+        $c->where(array(
+            'order_id' => $this->order_id
+        ));
+        $c->select('SUM(count) as total');
+        $total = $this->modx->getObject('brOrderProduct', $c)->get('total');
+        $total = (!$total) ? 0 : $total;
+        $order->set('total', $total);
+
         if($order->save() == false) {
             return $this->failure($this->modx->lexicon('order_err_save'));
         }
 
         $result = $order->toArray();
-        $result['total'] = $this->modx->getCount('brOrderProduct', array('order_id' => $this->order_id));
         $result['discount_price'] = $result['cost'] - $result['price'];
         return $result;
     }
