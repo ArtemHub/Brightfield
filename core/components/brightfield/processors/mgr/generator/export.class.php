@@ -19,10 +19,11 @@ class BrightfieldGeneratorExportProcessor extends modObjectProcessor {
 
 
         $objWriter = new PHPExcel_Writer_Excel5($xls);
-        $file = MODX_ASSETS_PATH.'xls/tmp.xls';
-        $objWriter->save($file);
+        $filename = date('Y-m-d', time()).'.xls';
+        $file = MODX_ASSETS_PATH.'xls/'.$filename;
 
-        return $this->success();
+        $test = $objWriter->save($file);
+        return $this->success('', array('url' => MODX_SITE_URL.'assets/xls/'.$filename));
     }
 
     public function setData(PHPExcel_Worksheet $sheet) {
@@ -57,10 +58,10 @@ class BrightfieldGeneratorExportProcessor extends modObjectProcessor {
     public function getProducts() {
         $result = array();
         $c = $this->modx->newQuery('msProduct');
-        $c->leftJoin('msProductData', 'ProductData');
+        $c->leftJoin('msProductData', 'ProductData', 'msProductData.id = msProduct.id');
         $c->select($this->modx->getSelectColumns('msProduct','msProduct'));
-        $c->select($this->modx->getSelectColumns('msProductData','ProductData'));
-        $c->sortby('ProductData.article_shinda', 'ASC');
+        $c->select($this->modx->getSelectColumns('msProductData','msProductData'));
+        $c->sortby('msProductData.article_shinda', 'ASC');
 
         $products = $this->modx->getCollection('msProduct');
         foreach($products as $product) {

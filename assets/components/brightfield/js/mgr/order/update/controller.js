@@ -89,6 +89,7 @@ Brightfield.controller = Ext.extend(Ext.util.Observable, {
             id: this.app.record.id,
             images: true,
         }, function (r) {
+            /*
              var dh = Ext.DomHelper;
              var test = dh.append(Ext.getBody(), {
                  tag: 'iframe',
@@ -99,6 +100,8 @@ Brightfield.controller = Ext.extend(Ext.util.Observable, {
                  css: 'display:none;visibility:hidden;height:0px;',
                  src: r.object.url
              });
+             */
+            window.open(r.object.url);
             setTimeout(function() {
                 ct._hideMask();
                 btn.enable();
@@ -124,6 +127,7 @@ Brightfield.controller = Ext.extend(Ext.util.Observable, {
             id: this.app.record.id,
             images: true,
         }, function (r) {
+            /*
             var dh = Ext.DomHelper;
             var test = dh.append(Ext.getBody(), {
                 tag: 'iframe',
@@ -134,6 +138,8 @@ Brightfield.controller = Ext.extend(Ext.util.Observable, {
                 css: 'display:none;visibility:hidden;height:0px;',
                 src: r.object.url
             });
+            */
+            window.open(r.object.url);
             setTimeout(function() {
                 ct._hideMask();
                 btn.enable();

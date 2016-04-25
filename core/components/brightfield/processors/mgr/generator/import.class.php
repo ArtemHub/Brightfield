@@ -8,7 +8,15 @@ class BrightfieldGeneratorImportProcessor extends modObjectProcessor {
     public function process() {
         $this->products = $this->getProducts();
 
-        $file = file(MODX_ASSETS_PATH.'import/db.csv');
+        $uploaddir = MODX_ASSETS_PATH.'components/brightfield/import/';
+        $uploadfile = $uploaddir . basename($_FILES['file']['name']);
+
+        if(!move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+            return $this->failure('Ошибка загрузки файла!');
+        }
+
+        $file = file($uploadfile);
+
         $this->data = array_map(function($value) {
             $result =  explode('|', $value);
             return array(
@@ -20,11 +28,9 @@ class BrightfieldGeneratorImportProcessor extends modObjectProcessor {
             );
         }, $file);
 
-        foreach ($this->data as $data) {
-
-        }
-
         $this->import();
+
+        unlink($uploadfile);
 
         return $this->success();
     }
@@ -33,24 +39,25 @@ class BrightfieldGeneratorImportProcessor extends modObjectProcessor {
         $table = $this->modx->getTableName('msProductData');
         foreach ($this->data as $data) {
             if(!$this->products[$data['article_shinda']]) {
-                echo $data['article_shinda'].' - товар не найден<br>';
+                $this->modx->log(modX::LOG_LEVEL_ERROR, $data['article_shinda'].' - товар не найден');
             }
             else {
                 $sql = 'UPDATE '.$table.' SET price='.$data['price'].',currency=\''.strtolower($data['currency']).'\',coefficient='.$data['coefficient'].' WHERE article_shinda=\''.$data['article_shinda'].'\'';
                 $q = $this->modx->prepare($sql);
                 $q->execute();
-                echo $data['article_shinda'].' - обновлен<br>';
+                $this->modx->log(modX::LOG_LEVEL_INFO,$data['article_shinda'].' - обновлен<br>');
             }
         }
+        $this->modx->log(modX::LOG_LEVEL_INFO,'COMPLETED');
     }
 
     public function getProducts() {
         $result = array();
         $c = $this->modx->newQuery('msProduct');
-        $c->leftJoin('msProductData', 'ProductData');
+        $c->leftJoin('msProductData', 'msProductData', 'msProductData.id = msProduct.id');
         $c->select($this->modx->getSelectColumns('msProduct','msProduct'));
-        $c->select($this->modx->getSelectColumns('msProductData','ProductData'));
-        $c->sortby('ProductData.article_shinda', 'ASC');
+        $c->select($this->modx->getSelectColumns('msProductData','msProductData'));
+        $c->sortby('msProductData.article_shinda', 'ASC');
 
         $products = $this->modx->getCollection('msProduct');
         foreach($products as $product) {
